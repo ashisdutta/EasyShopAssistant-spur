@@ -24,7 +24,7 @@ A mini AI-powered customer support chat agent for a fictional e-commerce store.
 ### Prerequisites
 - Node.js 18+
 - A PostgreSQL database (NeonDB free tier works)
-- A Groq API key — get one free at [console.groq.com](https://console.groq.com)
+- A Groq API key —> get one free at [console.groq.com](https://console.groq.com)
 
 ---
 
@@ -116,7 +116,7 @@ frontend/src/
 
 **Provider:** Groq (using `llama-3.3-70b-versatile` model)
 
-Groq was chosen over OpenAI for its **free tier and extremely fast inference** — ideal for a real-time chat experience.
+Groq was chosen over OpenAI for its **free tier and extremely fast inference** —> ideal for a real-time chat experience.
 
 **Prompting approach:**
 - System prompt defines the agent's role, tone, and hard rules
@@ -165,11 +165,10 @@ Sessions are persisted in the browser's `localStorage` — on page reload, the f
 ## Trade-offs & If I Had More Time
 
 **Trade-offs made:**
-- Used Groq (Llama) instead of OpenAI — free and faster, but less reliable for edge cases.
-- FAQ knowledge is hardcoded in the system prompt — simple but not scalable. A real system would store this in the DB and inject it dynamically.
-- Only last 5 messages sent as history — keeps costs low but loses context in very long conversations.
+- Used Groq (Llama) instead of OpenAI. Free and faster, but less reliable for edge cases.
+- FAQ knowledge is hardcoded in the system prompt, simple but not scalable. A real system would store this in the DB and inject it dynamically.
+- Only last 5 messages sent as history which keeps costs low but loses context in very long conversations.
 - No auth — sessions are identified by a client-side `localStorage` ID only for not to lost in reloads reload.
-- NeonDB free tier auto-suspends after 5 minutes of inactivity — first request after sleep takes ~1 second longer.
 - added a button in the UI(new chat) icase user wants to go for fresh chat.
 
 **If I had more time:**
@@ -177,3 +176,5 @@ Sessions are persisted in the browser's `localStorage` — on page reload, the f
 - Write unit tests for `generateReply()` and integration tests for the chat route.
 - Add proper auth so users can access their chat history across devices.
 - Implement Redis caching for frequently asked questions to reduce LLM API costs.
+
+- Note: NeonDB free tier auto-suspends after 5 minutes of inactivity, first request after sleep takes ~1 second longer.
