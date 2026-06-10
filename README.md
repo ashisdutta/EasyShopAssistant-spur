@@ -104,7 +104,7 @@ frontend/src/
 ├── hooks/
 │   └── useChat.ts            # All state logic — messages, sessionId, loading, errors
 └── components/
-    ├── ChatWidget.tsx         # Main container
+    ├── ChatMain.tsx         # Main container
     ├── MessageList.tsx        # Scrollable message list + typing indicator
     ├── MessageBubble.tsx      # Individual message bubble
     └── ChatInput.tsx         # Input box + send button
