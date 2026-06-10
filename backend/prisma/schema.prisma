@@ -1,0 +1,25 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+
+
+model Conversation {
+  id String @id @default(uuid())
+  createdAt DateTime @default(now())
+  messages Message[]
+}
+
+model Message {
+  id String @id @default(uuid())
+  conversationId String
+  sender String 
+  text String
+  timeStamp DateTime @default(now())
+  conversation Conversation @relation(fields: [conversationId], references: [id])
+}
